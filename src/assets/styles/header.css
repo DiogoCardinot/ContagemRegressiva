@@ -3,7 +3,7 @@
 .header-content {
   display: flex;
   justify-content: center;
-  background: var(--blueHeader);
+  background: var(--blue100);
   align-items: center;
   padding: 58px 0 46px 0;
 }
@@ -15,5 +15,6 @@
   line-height: 27px;
   letter-spacing: -0.1em;
   text-transform: lowercase;
-  color: #1e1d1d;
+  color: var(--grey600);
+  margin-left: 2px;
 }
