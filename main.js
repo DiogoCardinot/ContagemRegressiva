@@ -4,10 +4,8 @@ const botao = document.querySelector("#submit-button");
 botao.addEventListener("click", imprimeData);
 
 function imprimeData() {
-  var countDownDate = new Date("April 25, 2021 12:00:00").getTime();
-  var dataatual = document.querySelector("#number-input");
-  var dataatual1 = dataatual.value;
-  console.log(dataatual1);
+  var countDownDate = new Date("April 25, 2022 12:00:00").getTime();
+
   // Update the count down every 1 second
   var x = setInterval(function () {
     // Get todays date and time
@@ -25,10 +23,16 @@ function imprimeData() {
 
     // Display the result in the element with id="demo"
     document.getElementById(
-      "time-left"
+      "time-left-desktop"
     ).innerHTML = ` <p class='content-time-left-number'>${days}:</p>
                       <p class='content-time-left-number'>${hours}:</p>
                       <p class='content-time-left-number'>${minutes}</p>`;
+
+    document.getElementById(
+      "time-left-mobile"
+    ).innerHTML = ` <p class='content-time-left-number'>${days} d:</p>
+                      <p class='content-time-left-number'>${hours} h:</p>
+                      <p class='content-time-left-number'>${minutes} min</p>`;
 
     // If the count down is finished, write some text
     if (distance < 0) {
