@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const botao = document.querySelector("#submit-button");
+
   botao.addEventListener("click", imprimeData);
+  botao.addEventListener("reload", imprimeData);
 
   function imprimeData() {
     var x = setInterval(function () {
@@ -41,18 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the result in the element with id="demo"
         document.getElementById(
           "time-left-desktop"
-        ).innerHTML = ` <p class='content-time-left-number'>${days}:</p>
-                          <p class='content-time-left-number'>${hours}:</p>
-                          <p class='content-time-left-number'>${minutes}:</p>
-                          <p class='content-time-left-number'>${seconds}</p>`;
+        ).innerHTML = ` <p class='content-time-left-number' id='remaining-days'>${days}:</p>
+                          <p class='content-time-left-number' id='remaining-hours'>${hours}:</p>
+                          <p class='content-time-left-number' id='remaining-minutes'>${minutes}:</p>
+                          <p class='content-time-left-number' id='remaining-seconds'>${seconds}</p>`;
 
         document.getElementById(
           "time-left-mobile"
-        ).innerHTML = ` <p class='content-time-left-number'>${days} d:</p>
-                          <p class='content-time-left-number'>${hours} h:</p>
-                          <p class='content-time-left-number'>${minutes}min:</p>
-                          <p class='content-time-left-number'>${seconds}sec</p>`;
+        ).innerHTML = ` <p class='content-time-left-number' id='remaining-days'>${days} d:</p>
+                          <p class='content-time-left-number' id='remaining-hours'>${hours} h:</p>
+                          <p class='content-time-left-number' id='remaining-minutes'>${minutes}min:</p>
+                          <p class='content-time-left-number' id='remaining-seconds'>${seconds}sec</p>`;
       }
+
+      localStorage.setItem("input", count);
+      localStorage.getItem("input");
+
+      reloadInput();
     }, 1000);
   }
+  onload = function reloadInput() {
+    var inputValue = localStorage.getItem("input");
+
+    var count = document.querySelector("#date-input");
+    count.value = inputValue;
+  };
 });
