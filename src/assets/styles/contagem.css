@@ -62,11 +62,11 @@
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 21px;
-  text-transform: lowercase;
 }
 
 .content-button-background:hover {
   background: #036e8b;
+  transition: background-color 0.2s;
 }
 .content-button-background:active {
   background: var(--blue100);
