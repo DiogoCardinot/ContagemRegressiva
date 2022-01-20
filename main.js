@@ -10,19 +10,29 @@ document.addEventListener("DOMContentLoaded", function () {
       let endDate = new Date(inputEndDateValue).getTime(); //tranforma o valor do input em uma data
       let now = new Date().getTime(); //data de 'hoje'
       let nowParts = new Date();
+      const timeErrorStructureDesktop = `
+            <p class='content-time-left-number'>00:</p>
+            <p class='content-time-left-number'>00:</p>
+            <p class='content-time-left-number'>00:</p>
+            <p class='content-time-left-number'>00</p>
+      `;
+      const timeErrorStructureMobile = `
+            <p class='content-time-left-number'>00d:</p>
+            <p class='content-time-left-number'>00h:</p>
+            <p class='content-time-left-number'>00min:</p>
+            <p class='content-time-left-number'>00sec</p>
+
+      `;
 
       let secondsRemaining = endDate - now; //tempo que falta para a data de hoje até a data do input em ms;
       //se o dia e horário for menor ou igual ao dia de hoje e horário de agora
-      if (secondsRemaining <= 0) {
+      if (secondsRemaining < 0) {
         clearInterval(updateInterval);
         document.querySelector("#time-left-desktop").innerHTML = ` 
         <div  class='content-time-left-desktop-invalid-day'>
 
           <div class='content-time-left-desktop-invalid-day-time'>
-            <p class='content-time-left-number'>00:</p>
-            <p class='content-time-left-number'>00:</p>
-            <p class='content-time-left-number'>00:</p>
-            <p class='content-time-left-number'>00</p>
+            ${timeErrorStructureDesktop}
           </div>
           
             <p class='content-wrapper-invalid-day-message'>Insira uma data ou horário maior que
@@ -38,10 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelector(
           "#time-left-mobile"
-        ).innerHTML = ` <p class='content-time-left-number'>00d:</p>
-                          <p class='content-time-left-number'>00h:</p>
-                          <p class='content-time-left-number'>00min:</p>
-                          <p class='content-time-left-number'>00sec</p>
+        ).innerHTML = `   ${timeErrorStructureMobile}
                           <p class='content-wrapper-invalid-day-message'>
                             Insira uma data ou horário maior que
                               ${nowParts.getDate()}/
@@ -50,22 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
                               ${nowParts.getHours()}h 
                               e 
                               ${nowParts.getMinutes()}min</p>`;
-      } else if (inputEndDateValue == "") {
+      } else if (inputEndDateValue == "" || secondsRemaining === 0) {
         clearInterval(updateInterval);
 
-        document.querySelector("#time-left-desktop").innerHTML = ` 
-                      <p class='content-time-left-number'>00:</p>
-                      <p class='content-time-left-number'>00:</p>
-                      <p class='content-time-left-number'>00:</p>
-                      <p class='content-time-left-number'>00</p>
-                    `;
+        document.querySelector(
+          "#time-left-desktop"
+        ).innerHTML = `${timeErrorStructureDesktop}`;
 
         document.querySelector(
           "#time-left-mobile"
-        ).innerHTML = ` <p class='content-time-left-number'>00d:</p>
-                          <p class='content-time-left-number'>00h:</p>
-                          <p class='content-time-left-number'>00min:</p>
-                          <p class='content-time-left-number'>00sec</p>`;
+        ).innerHTML = `${timeErrorStructureMobile}`;
       } else {
         inputEndDate.addEventListener("change", () => {
           clearInterval(updateInterval);
