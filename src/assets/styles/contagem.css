@@ -72,6 +72,25 @@
   background: var(--blue100);
 }
 
+/*CASO A DATA SEJA MENOR QUE O DIA DE HOJE E HORÁRIO DE AGORA */
+.content-time-left-desktop-invalid-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-time-left-desktop-invalid-day-time {
+  display: flex;
+}
+
+.content-wrapper-invalid-day-message {
+  max-width: 450px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
 @media screen and (max-width: 424px) {
   .content-time-left-desktop {
     display: none;
@@ -79,6 +98,7 @@
   .content-time-left-mobile {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-bottom: 48px;
   }
 }
