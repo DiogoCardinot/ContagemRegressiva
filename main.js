@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //armazena o valor do input no localstorage
       localStorage.setItem("input", inputEndDateValue);
       localStorage.getItem("input");
-    }, 1000);
+    }, 150); //150ms
   }
   //quando recarregar a página ele pega o valor do input do local storage e coloca no input novamente, após isso chama a fução que calcula o tempo restante
   onload = function reloadInput() {
