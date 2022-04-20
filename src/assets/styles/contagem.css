@@ -1,0 +1,110 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 26px;
+}
+.content-time-left-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.content-time-left-mobile {
+  display: none;
+}
+.content-time-left-number {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 75px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: lowercase;
+  color: #000000;
+}
+.content-input-date {
+  margin-bottom: 38px;
+  width: 100%;
+  max-width: 452px;
+}
+.content-input-date-input {
+  display: flex;
+  align-items: center;
+  padding: 0 26px;
+  border: 2px solid var(--black);
+  border-radius: 26px;
+  width: 100%;
+  height: 36px;
+}
+
+.content-button {
+  width: 100%;
+  max-width: 233px;
+}
+
+.content-button-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  padding: 18px 0;
+  background: var(--blue100);
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  border-radius: 30px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.content-button-background:hover {
+  background: #036e8b;
+  transition: background-color 0.2s;
+}
+.content-button-background:active {
+  background: var(--blue100);
+}
+
+/*CASO A DATA SEJA MENOR QUE O DIA DE HOJE E HORÁRIO DE AGORA */
+.content-time-left-desktop-invalid-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-time-left-desktop-invalid-day-time {
+  display: flex;
+}
+
+.content-wrapper-invalid-day-message {
+  max-width: 450px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+@media screen and (max-width: 424px) {
+  .content-wrapper {
+    padding: 40px 26px;
+  }
+  .content-time-left-desktop {
+    display: none;
+  }
+  .content-time-left-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .content-wrapper {
+    height: calc(100vh - 132px - 71px);
+  }
+}

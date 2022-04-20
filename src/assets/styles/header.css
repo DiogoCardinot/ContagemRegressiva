@@ -1,0 +1,20 @@
+@import "./variables.css";
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  background: var(--blue100);
+  align-items: center;
+  padding: 58px 0 46px 0;
+}
+.header-text {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.1em;
+  text-transform: lowercase;
+  color: var(--grey600);
+  margin-left: 2px;
+}
